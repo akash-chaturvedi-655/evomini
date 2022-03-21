@@ -2,4 +2,9 @@
 <p><%= @admin.email %></p>
 <ul>
     <li><%= link_to "Edit" , edit_admin_path(@admin) %></li>
+     <li><%= link_to "Destroy" , admin_path(@admin),
+        data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        } %></li>
 </ul>
