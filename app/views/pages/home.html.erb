@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Evomini</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <div>
+        <h1>Granicus LLC Home Page</h1>
+        <form action="/login" method="post">
+            <label for="email">Email / Username</label>
+            <input type="text" id="email" name="email"><br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+  </body>
+</html>

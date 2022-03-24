@@ -1,0 +1,29 @@
+<h1> Welcome to Granicus Evolution Lite ! </h1>
+<p> 2022 all rights reserved. </p>
+
+<!--
+<form>
+<div>
+<button type="button" formaction="/accounts">Accounts</button>
+<br>
+</div>
+<div>
+<button type="button" formaction="/subscribers">Subscribers</button>
+<br>
+</div>
+<div>
+<button type="button" formaction="/userlists">User Lists</button>
+<br>
+</div>
+<div>
+<button type="button" formaction="/bulletins">Bulletins</button>
+<br>
+</div>
+</form>
+-->
+
+<% button_to "Accounts", admins_path %>
+<% button_to "Subscribers" ,subscribers_path %>
+<% button_to "User Lists" ,subscribers_path %>
+<% button_to "Bulletins" ,subscriber_bulletins_path[:subscriber_id] %>
+

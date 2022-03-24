@@ -10,11 +10,11 @@ class AdminsController < ApplicationController
   end
 
   def new
-    @admin = Admin.new(admin_params)
+    @admin = Admin.new
   end
 
   def create
-    @admin = Admin.new
+    @admin = Admin.new(admin_params)
 
     if @admin.save
       redirect_to @admin
@@ -40,14 +40,16 @@ class AdminsController < ApplicationController
   def destroy
     @admin = Admin.find(params[:id])
     @admin.destroy
+    params[:id] = nil
+    flash[:notice] = "Admin has been deleted"
+    #redirect_to :action => :index
 
-    redirect_to_root_path # status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
 
   def admin_params
-    params.permit(:name, :email)
-    #.require(:admin)
+    params.require(:admin).permit(:name, :email)
   end
 end
