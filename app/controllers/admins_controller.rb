@@ -41,8 +41,8 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
     @admin.destroy
     params[:id] = nil
-    flash[:notice] = "Admin has been deleted"
-    #redirect_to :action => :index
+    flash[:notice] = 'Admin has been deleted'
+    # redirect_to :action => :index
 
     redirect_to root_path, status: :see_other
   end
@@ -51,5 +51,6 @@ class AdminsController < ApplicationController
 
   def admin_params
     params.require(:admin).permit(:name, :email)
+    #
   end
 end

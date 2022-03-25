@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class UserListsController < ApplicationController
-  
-  def index; 
+  def index
     @userlists = UserList.all
   end
 
@@ -34,8 +33,8 @@ class UserListsController < ApplicationController
     @userlist = userList.find(params[:id])
     @userlist.destroy
     params[:id] = nil
-    flash[:notice] = "userlist has been deleted"
-    #redirect_to :action => :index
+    flash[:notice] = 'userlist has been deleted'
+    # redirect_to :action => :index
 
     redirect_to root_path, status: :see_other
   end

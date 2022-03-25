@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
 class BulletinsController < ApplicationController
-  def index;
+  before_action :set_user, only: %i[edit update show]
+
+  def index
     @bulletins = Bulletin.all
   end
 
   def show
-    @subs_bulletin = Bulletin.find(params[:subscriber_id])
-    if(@subs_bulletin)
-       redirect_to @subs_bulletin
+    @subscriber_id = Subscriber.find(params[:id])
+    @subs_bulletin = @subscriber_id.bulletins
+
+    if @subs_bulletin
+      redirect_to @subs_bulletin
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,9 +46,19 @@ class BulletinsController < ApplicationController
     @bulletin = Bulletin.find(params[:id])
     @bulletin.destroy
     params[:id] = nil
-    flash[:notice] = "bulletin has been deleted"
-    #redirect_to :action => :index
+    flash[:notice] = 'bulletin has been deleted'
+    # redirect_to :action => :index
 
     redirect_to root_path, status: :see_other
+  end
+
+  private
+
+  def bulletin_params
+    params.require(:id).permit(:name, :email)
+  end
+
+  def set_user
+    @user = Subscriber.find(params[:id])
   end
 end

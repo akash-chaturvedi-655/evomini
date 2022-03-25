@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class SubscribersController < ApplicationController
-
   def index
-    @subscribers = Subscriber.all 
+    @subscribers = Subscriber.all
   end
 
   def create
@@ -34,8 +33,8 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.find(params[:id])
     @subscriber.destroy
     params[:id] = nil
-    flash[:notice] = "Subscriber has been deleted"
-    #redirect_to :action => :index
+    flash[:notice] = 'Subscriber has been deleted'
+    # redirect_to :action => :index
 
     redirect_to root_path, status: :see_other
   end

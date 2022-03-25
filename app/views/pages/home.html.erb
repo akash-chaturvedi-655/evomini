@@ -13,6 +13,7 @@
     <%= yield %>
     <div>
         <h1>Granicus LLC Home Page</h1>
+        <!--
         <form action="/login" method="post">
             <label for="email">Email / Username</label>
             <input type="text" id="email" name="email"><br><br>
@@ -20,7 +21,30 @@
             <input type="password" id="password" name="password"><br><br>
             <input type="submit" value="Submit">
         </form>
+        -->
 
     </div>
+    <%= form_with model: @login do |form| %>
+  <div>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+    <% @login.errors.full_messages_for(:username).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+    <%= form.password_field :password_confirmation %>
+    <% @login.errors.full_messages_for(:password).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
   </body>
 </html>
