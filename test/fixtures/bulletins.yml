@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   from: MyString
-  body: MyString
-  to: 1
-  flag: 1
+  to: MyString
+  body: MyText
+  flag: 
 
 two:
-  id: 1
   from: MyString
-  body: MyString
-  to: 1
-  flag: 1
+  to: MyString
+  body: MyText
+  flag: 

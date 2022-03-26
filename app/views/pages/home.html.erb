@@ -22,29 +22,24 @@
             <input type="submit" value="Submit">
         </form>
         -->
-
     </div>
-    <%= form_with model: @login do |form| %>
+   
+    <%= form_with(model: @login , method: :post, url: "/login") do |form| %>
   <div>
     <%= form.label :username %><br>
     <%= form.text_field :username %>
-    <% @login.errors.full_messages_for(:username).each do |message| %>
-    <div><%= message %></div>
-    <% end %>
   </div>
-
+  <br>
   <div>
     <%= form.label :password %><br>
     <%= form.password_field :password %>
-    <%= form.password_field :password_confirmation %>
-    <% @login.errors.full_messages_for(:password).each do |message| %>
-    <div><%= message %></div>
-    <% end %>
   </div>
-
+  <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit "Login" %>
   </div>
 <% end %>
+<br>
+<%= link_to "New User", admins_path %>
   </body>
 </html>

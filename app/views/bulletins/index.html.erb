@@ -1,3 +1,33 @@
-<h1>Bulletins#index</h1>
-<p>Find me in app/views/bulletins/index.html.erb</p>
-<%= render "bulletin", bulletin: @bulletin %>
+<p id="notice"><%= notice %></p>
+
+<h1>Bulletins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>Body</th>
+      <th>Flag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bulletins.each do |bulletin| %>
+      <tr>
+        <td><%= bulletin.from %></td>
+        <td><%= bulletin.to %></td>
+        <td><%= bulletin.body %></td>
+        <td><%= bulletin.flag %></td>
+        <td><%= link_to 'Show', bulletin %></td>
+        <td><%= link_to 'Edit', edit_bulletin_path(bulletin) %></td>
+        <td><%= link_to 'Destroy', bulletin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bulletin', new_bulletin_path %>

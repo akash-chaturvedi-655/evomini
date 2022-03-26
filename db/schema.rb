@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,55 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_323_031_519) do
-  create_table 'admins', force: :cascade do |t|
-    t.string 'name'
-    t.string 'email'
-    t.string 'password'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema.define(version: 2022_03_26_032948) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'bulletins', force: :cascade do |t|
-    t.string 'from'
-    t.string 'body'
-    t.integer 'to'
-    t.integer 'flag'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "bulletins", force: :cascade do |t|
+    t.string "from"
+    t.string "to"
+    t.text "body"
+    t.integer "flag"
   end
 
-  create_table 'homes', force: :cascade do |t|
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'login_home_pages', force: :cascade do |t|
-    t.string 'username'
-    t.string 'password'
+  create_table "login_home_pages", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
   end
 
-  create_table 'logins', force: :cascade do |t|
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "logins", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'subscribers', force: :cascade do |t|
-    t.string 'name'
-    t.string 'userId'
-    t.string 'email'
-    t.string 'password'
-    t.datetime 'last_login_date'
-    t.string 'phone'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "subscribers", force: :cascade do |t|
+    t.string "name"
+    t.string "userId"
+    t.string "email"
+    t.string "password"
+    t.datetime "last_login_date"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'user_lists', force: :cascade do |t|
-    t.string 'username'
-    t.string 'subscriber_name'
-    t.integer 'subscriber_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "user_lists", force: :cascade do |t|
+    t.string "username"
+    t.string "subscriber_name"
+    t.integer "subscriber_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+    t.integer "isAdmin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

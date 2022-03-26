@@ -1,64 +1,70 @@
-# frozen_string_literal: true
-
 class BulletinsController < ApplicationController
-  before_action :set_user, only: %i[edit update show]
+  before_action :set_bulletin, only: %i[ show edit update destroy ]
 
+  # GET /bulletins or /bulletins.json
   def index
     @bulletins = Bulletin.all
   end
 
+  # GET /bulletins/1 or /bulletins/1.json
   def show
-    @subscriber_id = Subscriber.find(params[:id])
-    @subs_bulletin = @subscriber_id.bulletins
-
-    if @subs_bulletin
-      redirect_to @subs_bulletin
-    else
-      render :new, status: :unprocessable_entity
-    end
   end
 
+  # GET /bulletins/new
+  def new
+    @bulletin = Bulletin.new
+  end
+
+  # GET /bulletins/1/edit
+  def edit
+  end
+
+  # POST /bulletins or /bulletins.json
   def create
     @bulletin = Bulletin.new(bulletin_params)
 
-    if @bulletin.save
-      redirect_to @bulletin
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @bulletin.save
+        format.html { redirect_to bulletin_url(@bulletin), notice: "Bulletin was successfully created." }
+        format.json { render :show, status: :created, location: @bulletin }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @bulletin.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  # PATCH/PUT /bulletins/1 or /bulletins/1.json
   def update
-    @bulletin = Bulletin.find(params[:id])
-
-    if @bulletin.update(bulletin_params)
-      redirect_to @bulletin
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @bulletin.update(bulletin_params)
+        format.html { redirect_to bulletin_url(@bulletin), notice: "Bulletin was successfully updated." }
+        format.json { render :show, status: :ok, location: @bulletin }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @bulletin.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def edit
-    @bulletin = Bulletin.find(params[:id])
-  end
-
+  # DELETE /bulletins/1 or /bulletins/1.json
   def destroy
-    @bulletin = Bulletin.find(params[:id])
     @bulletin.destroy
-    params[:id] = nil
-    flash[:notice] = 'bulletin has been deleted'
-    # redirect_to :action => :index
 
-    redirect_to root_path, status: :see_other
+    respond_to do |format|
+      format.html { redirect_to bulletins_url, notice: "Bulletin was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_bulletin
+      @bulletin = Bulletin.find(params[:id])
+    end
 
-  def bulletin_params
-    params.require(:id).permit(:name, :email)
-  end
-
-  def set_user
-    @user = Subscriber.find(params[:id])
-  end
+    # Only allow a list of trusted parameters through.
+    def bulletin_params
+      params.require(:bulletin).permit(:from, :to, :body, :flag)
+    end
 end

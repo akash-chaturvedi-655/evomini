@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From:</strong>
+  <%= @bulletin.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @bulletin.to %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @bulletin.body %>
+</p>
+
+<p>
+  <strong>Flag:</strong>
+  <%= @bulletin.flag %>
+</p>
+
+<%= link_to 'Edit', edit_bulletin_path(@bulletin) %> |
+<%= link_to 'Back', bulletins_path %>
