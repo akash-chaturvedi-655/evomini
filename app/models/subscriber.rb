@@ -3,7 +3,7 @@
 class Subscriber < ApplicationRecord
   attr_accessor :name
   attr_accessor :userId
-  belongs_to user
+  belongs_to :user
   has_many :bulletins
   has_many :userlists
   validates :name, presence: true

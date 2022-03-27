@@ -13,18 +13,10 @@
     <%= yield %>
     <div>
         <h1>Granicus LLC Home Page</h1>
-        <!--
-        <form action="/login" method="post">
-            <label for="email">Email / Username</label>
-            <input type="text" id="email" name="email"><br><br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Submit">
-        </form>
-        -->
     </div>
    
-    <%= form_with(model: @login , method: :post, url: "/login") do |form| %>
+   <!--, url: "/login", method: :post, -->
+    <%= form_with(model: @login ,url: login_path, local: true) do |form| %>
   <div>
     <%= form.label :username %><br>
     <%= form.text_field :username %>
@@ -36,7 +28,8 @@
   </div>
   <br>
   <div>
-    <%= form.submit "Login" %>
+  <%#<% debugger %>
+    <%= form.submit "Login"  %>
   </div>
 <% end %>
 <br>

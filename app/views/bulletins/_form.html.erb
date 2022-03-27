@@ -27,11 +27,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :flag %>
-    <%= form.text_field :flag %>
+    <%= form.label "Send Bulletin to Users Now?" %> 
+    <%= form.select :flag, ['True', 'False'], :prompt => 'Select True or False' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Send Bulletin"%>
   </div>
 <% end %>

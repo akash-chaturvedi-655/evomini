@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-    has_many :admin
-    has_many :subscriber
+    has_many :admins
+    has_many :subscribers
 end

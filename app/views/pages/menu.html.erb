@@ -1,13 +1,16 @@
 <h1> Welcome to Granicus Evolution Lite ! </h1>
 <p> 2022 all rights reserved. </p>
 
+
 <div>
-<%= button_to "Accounts" ,admins_path, :method=>:get %> 
+<%= button_to "Administrators" ,admins_path, method: "get" %> 
 <br>
-<%= button_to "Subscribers" ,subscribers_path %>
+</div>
+<div>
+<%= button_to "Users" ,users_path, method: "get" %> 
 <br>
-<%= button_to "User Lists" ,subscribers_path %>
-<br>
-<%= button_to "Bulletins" ,subscriber_bulletins_path(:id), :method=>:get %>
+</div>
+<div>
+<%= button_to "Bulletins" ,bulletins_path, method: "get"%>
 <br>
 </div>

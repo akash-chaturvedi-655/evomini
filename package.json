@@ -1,5 +1,10 @@
 {
   "name": "evomini",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@popperjs/core": "2.0.0-alpha.1",
+    "@prettier/plugin-ruby": "^2.0.0",
+    "@rails/webpacker": "4.3.0",
+    "bootstrap": "5.0.0-beta2"
+  }
 }

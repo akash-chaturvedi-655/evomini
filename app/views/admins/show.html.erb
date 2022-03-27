@@ -1,11 +1,14 @@
-<h1>Admin#Show</h1>
-<h1><%= @admin.name %></h1>
+<p id="notice"><%= notice %></p>
 
-<p><%= @admin.email %></p>
-<ul>
-    <li><%= link_to "Edit" , edit_admin_path(@admin) %></li>
-     <li><%= link_to "Destroy" , admin_path(@admin), data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-        } %></li>
-</ul>
+<p>
+  <strong>Email:</strong>
+  <%= @admin.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @admin.password %>
+</p>
+
+<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Back', admins_path %>
