@@ -5,14 +5,16 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+   
+    user = User.find_by(email: params[:session][:username].downcase)
+    if user #&& user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:success] = "Logged in successfully"
-      redirect_to user_path(user)
+      redirect_to pages_path
     else
       flash.now[:danger] = "There was something wrong with the login information"
-      render 'new'
+      #render 'pages#home'
+      redirect_to root_path
     end    
   end
   

@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  def home; 
+  
+  def home 
     render :layout => "home"
   end
 
-  def menu;
+  def menu
+    #redirect_to pages_path if logged_in?
   end
 end
