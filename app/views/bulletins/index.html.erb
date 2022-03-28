@@ -9,6 +9,7 @@
       <th>To</th>
       <th>Body</th>
       <th>Sent</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,13 +17,15 @@
   <tbody>
     <% @bulletins.each do |bulletin| %>
       <tr>
+       
         <td><%= bulletin.from %></td>
         <td><%= bulletin.to %></td>
         <td><%= bulletin.body %></td>
         <td><%= bulletin.flag %></td>
-        <td><%= link_to 'Show', bulletin %></td>
-        <td><%= link_to 'Edit', edit_bulletin_path(bulletin) %></td>
-        <td><%= link_to 'Destroy', bulletin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= bulletin.user_email %></td>
+        <td><%= link_to 'View', bulletin %></td>
+       <!-- <td><%= link_to 'Edit', edit_bulletin_path(bulletin) %></td> -->
+        <td><%= link_to 'Delete', bulletin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

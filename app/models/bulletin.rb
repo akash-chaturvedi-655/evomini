@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
 class Bulletin < ApplicationRecord
-    validates :from, :to, :body, :flag , presence: true
+  #belongs_to :user
+  validates :from, presence: true
+  validates :to, presence: true
+  validates :body, presence: true
+  validates :flag, presence: true 
 end

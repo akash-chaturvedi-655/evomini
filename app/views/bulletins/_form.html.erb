@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label "Send Bulletin to Users Now?" %> 
-    <%= form.select :flag, ['True', 'False'], :prompt => 'Select True or False' %>
+    <%= form.select(:flag, options_for_select([["True", 0] , ["False", 1 ]])) %>
   </div>
 
   <div class="actions">

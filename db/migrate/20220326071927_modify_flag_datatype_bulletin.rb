@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ModifyFlagDatatypeBulletin < ActiveRecord::Migration[5.2]
   def change
-      change_column :bulletins, :flag, :boolean, default: false
+    change_column :bulletins, :flag, :boolean, default: false
   end
 end

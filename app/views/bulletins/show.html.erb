@@ -20,5 +20,10 @@
   <%= @bulletin.flag %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @bulletin.user_email %>
+</p>
+
 <%= link_to 'Edit', edit_bulletin_path(@bulletin) %> |
 <%= link_to 'Back', bulletins_path %>
