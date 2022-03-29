@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_040934) do
+ActiveRecord::Schema.define(version: 2022_03_29_075942) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2022_03_29_040934) do
     t.text "body"
     t.boolean "flag"
     t.string "user_email"
+    t.string "topic"
   end
 
   create_table "homes", force: :cascade do |t|

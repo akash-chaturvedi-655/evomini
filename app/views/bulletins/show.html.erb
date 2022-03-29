@@ -24,6 +24,7 @@
   <strong>User:</strong>
   <%= @bulletin.user_email %>
 </p>
-
-<%= link_to 'Edit', edit_bulletin_path(@bulletin) %> |
+<% if !@bulletin.flag %>
+<%= link_to 'Edit', edit_bulletin_path(@bulletin) %> 
+<% end %>
 <%= link_to 'Back', bulletins_path %>

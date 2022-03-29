@@ -5,5 +5,5 @@ class Bulletin < ApplicationRecord
   validates :from, presence: true
   validates :to, presence: true
   validates :body, presence: true
-  validates :flag, presence: true 
+  #validates :flag, presence: true 
 end

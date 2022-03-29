@@ -19,10 +19,16 @@ class BulletinsController < ApplicationController
   # GET /bulletins/new
   def new
     @bulletin = Bulletin.new
+    set_user_for_bulletin #@user = current_user
+    puts("Here is the bulletin" , @bulletin.inspect)
+    @userlists = @user.userlists#[:topic]
+    puts("Here is the userlists" , @userlists.inspect)
   end
 
   # GET /bulletins/1/edit
-  def edit; end
+  def edit; 
+    @userlists = @user.userlists
+  end
 
   # POST /bulletins or /bulletins.json
   def create
@@ -30,6 +36,10 @@ class BulletinsController < ApplicationController
     @bulletin[:user_email] = @user[:email]
     #set_user_for_bulletin
     #puts @bulletin.inspect
+    #set_user_for_bulletin #@user = current_user
+    puts("Here is the bulletin" , @bulletin.inspect)
+    @userlists = @user.userlists
+    puts("Here is the userlists" , @userlists.inspect)
 
     respond_to do |format|
       if @bulletin.save
@@ -76,7 +86,7 @@ class BulletinsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def bulletin_params
-    params.require(:bulletin).permit(:from, :to, :body, :flag)
+    params.require(:bulletin).permit(:from, :to, :body, :flag, :topic)
   end
 
   def require_same_user
@@ -89,9 +99,8 @@ class BulletinsController < ApplicationController
   def set_user_for_bulletin
     
     @user = current_user
-    # puts(@user.email)
-    puts @user.inspect
-    puts @bulletin.inspect
+    # puts @user.inspect
+    # puts @bulletin.inspect
     #@bulletin[:user_email] = @user[:email]   
   
   end

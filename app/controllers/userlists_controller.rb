@@ -1,5 +1,6 @@
 class UserlistsController < ApplicationController
   
+  before_action :require_user
   before_action :set_userid #, only: %i[ index edit update destroy create]
   before_action :set_userlist, only: %i[ show edit update destroy ]
 
