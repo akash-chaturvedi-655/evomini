@@ -44,10 +44,8 @@ class BulletinsController < ApplicationController
     respond_to do |format|
       if @bulletin.save
         format.html { redirect_to bulletin_url(@bulletin), notice: 'Bulletin was successfully sent.' }
-        format.json { render :show, status: :created, location: @bulletin }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @bulletin.errors, status: :unprocessable_entity }
       end
     end
   end
