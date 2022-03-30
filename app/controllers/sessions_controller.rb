@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         # flash.now[:danger] = "There was something wrong with the login information"
         # render 'pages#home'
         # redirect_to root_path
-        format.html { redirect_to root_path, notice: 'There was something wrong with the login information. Please contact your administrator' }
+        format.html { redirect_to root_path, notice: 'There was something wrong with the login information. Please check your user credentials or contact your administrator.' }
       end
     end
   end

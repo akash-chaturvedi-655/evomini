@@ -11,22 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+<div class="card">
+<div class="card-body>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+  <div class="mb-3">
+    <%= form.label :email , { class: "form-label"}%>
+    <%= form.text_field :email , { class: "form-control"} %>
   </div>
-
-  <div class="field">
-    <%= form.label :admin %>
-    <%= form.text_field :admin %>
+<br>
+  <div class="mb-3">
+    <%= form.label :password , { class: "form-label"} %>
+    <%= form.text_field :password , { class: "form-control"}%>
   </div>
-
+<br>
+  <div class="mb-3">
+    <%= form.label :admin , "Is This an Admin Account ?" , { class: "form-label"} %>
+    <%= form.text_field :admin , { class: "form-control", placeholder: "Type True or False" }%>
+  </div>
+<br>
   <div class="actions">
     <%= form.submit %>
+  </div>
+<br>
+  </div>
   </div>
 <% end %>

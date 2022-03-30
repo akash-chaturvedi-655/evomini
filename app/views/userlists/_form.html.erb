@@ -18,17 +18,23 @@
   </div>
 -->
 
-  <div class="field">
-    <%= form.label :topic %>
-    <%= form.text_field :topic %>
+<div class="card">
+<div class="card-body">
+
+  <div class="mb-3">
+    <%= form.label :topic , { class: "form-label"} %>
+    <%= form.text_field :topic, { class: "form-control" } %>
   </div>
 
-  <div class="field">
-    <%= form.label :receipients %>
-    <%= form.text_field :receipients %>
+ <div class="mb-3">
+    <%= form.label :receipients, { class: "form-label"}  %>
+    <%= form.text_field :receipients , { class: "form-control" }%>
   </div>
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Userlist", class: "btn btn-primary" %>
+  </div>
+<br>
+  </div>
   </div>
 <% end %>

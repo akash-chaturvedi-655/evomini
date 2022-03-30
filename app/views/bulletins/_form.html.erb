@@ -1,4 +1,5 @@
 <%= form_with(model: bulletin, local: true) do |form| %>
+
   <% if bulletin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(bulletin.errors.count, "error") %> prohibited this bulletin from being saved:</h2>
@@ -11,11 +12,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :from %>
-    <%= form.text_field :from %>
-  </div>
+<div class="card">
+<div class="card-body">
 
+  <div class="mb-3">
+    <%= form.label :from, { class: "form-label"}  %>
+    <%= form.text_field :from , { class: "form-control" }%>
+  </div>
+<br>
   <!--
   <div class="field">
     <%# <%= form.label "Select a Topic for Userlists" %> 
@@ -23,11 +27,11 @@
     <%#<%= form.select(:userlists[:topic] , options) %>
   </div>
   -->
-  <div class="form-group">
-    <%= form.label "Select a topic" %>
+  <div class="dropdown ">
+    <%= form.label "Select a topic", { class: "form-label"}  %>
     <%= form.select :topic, @userlists.map { |t| [t.topic, t.receipients]}, {}, class: "form-control"  %>
   </div>
-
+<br></br>
 <!--
   <div class="field">
   <%#  <%= form.label :to %>
@@ -41,23 +45,40 @@
     </ul>
   </div>
 -->
-  <div class="field">
-    <%= form.label :to %>
-    <%= form.text_field :to %>
+  <div class="mb-3">
+    <%= form.label :to , { class: "form-label"} %>
+    <%= form.text_field :to , { class: "form-control" }%>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
+<script type="text/javascript">
+  $(document).ready(function(){
 
-  <div class="field">
-    <%= form.label "Send Bulletin to Users Now?" %> 
-    <%= form.select(:flag, options_for_select([["True", 1] , ["False", 0]])) %>
+    $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5();
+    });
+
+  })
+</script>
+
+<br>
+  <div class="mb-3">
+    <%= form.label :body , { class: "form-label"} %>
+    <%= form.text_area :body ,  class: "wysihtml5 form-control" %>
+    
+  </div>
+<br>
+  <div class="dropdown">
+    <%= form.label "Send Bulletin to Users Now?", { class: "form-label"}  %> 
+    <%= form.select(:flag, options_for_select([["True", 1] , ["False", 0]]), {class: "form-control"}) %>
     <%= puts(bulletin.flag)  %>
   </div>
-
+<br>
   <div class="actions">
-    <%= form.submit "Send Bulletin"%>
+    <%= form.submit "Send Bulletin", class: "btn btn-primary"%>
   </div>
+
+  </div>
+</div>
 <% end %>
+
+

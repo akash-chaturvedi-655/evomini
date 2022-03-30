@@ -37,6 +37,7 @@
         </ul>
         <div style="float:right;"> <%= button_to "Logout", logout_path, method: "delete" %></div>
       </div>
+      <h2>Welcome , <%= current_user.email %> !!</h2>
     </div>
   </header>
     <%= yield %>

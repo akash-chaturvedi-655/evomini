@@ -12,22 +12,26 @@
   <body>
     <%= yield %>
     <div>
-        <h1>Granicus LLC Home Page</h1>
+        <h1>Granicus LLC Login Page</h1>
+        <h3>2022 &#169; All Rights Reserved.</h3>
     </div>
    
    <!--, url: "/login", method: :post, -->
    <!--  model: @login ,  url: pages_path,-->
     
-    <div class="container">
     <%= form_with(scope: :session, model: @login, url: login_path, local: true) do |form| %>
-  <div>
-    <%= form.label :username %><br>
-    <%= form.text_field :username %>
+  
+  <div class="card" style="width: 25rem;">
+<div class="card-body">
+
+  <div class="mb-3">
+    <%= form.label :username, { class: "form-label"}  %><br>
+    <%= form.text_field :username , { class: "form-control"} %>
   </div>
   <br>
-  <div>
-    <%= form.label :password %><br>
-    <%= form.password_field :password %>
+  <div class="mb-3">
+    <%= form.label :password, { class: "form-label"}  %><br>
+    <%= form.password_field :password , { class: "form-control"} %>
   </div>
   <br>
   <div>
@@ -36,7 +40,7 @@
   </div>
 <% end %>
 <br>
-<%= link_to "New User", root_path %>
-</div>
+<%= link_to "New User", root_path, :class => "btn btn-primary btn-sm", :data => {:confirm => 'Please Contact Your Administrator To Create A New Account For You.'}  %>
+
   </body>
 </html>
